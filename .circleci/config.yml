@@ -4,10 +4,9 @@ orbs:
   cicd: sedstart/cicd@dev:1
 
 jobs:
-  test-windows:
-    executor:
-      name: windows
-      size: small
+  test-macos:
+    macos:
+      xcode: "15.0"
     steps:
       - cicd/runlocal:
           api_key: SEDSTART_API_KEY_PROD
@@ -21,4 +20,4 @@ jobs:
 workflows:
   test-workflow:
     jobs:
-      - test-windows
+      - test-macos
