@@ -6,7 +6,7 @@ orbs:
 jobs:
   test-macos:
     macos:
-      xcode: "m4pro.medium"
+      xcode: "14.3.1"
     steps:
       - cicd/runlocal:
           api_key: SEDSTART_API_KEY_PROD
