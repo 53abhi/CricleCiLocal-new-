@@ -5,8 +5,9 @@ orbs:
 
 jobs:
   test-windows:
-    machine:
-      image: windows-server-2022-gui
+    executor:
+      name: windows
+      size: large
     steps:
       - cicd/runlocal:
           api_key: SEDSTART_API_KEY_PROD
