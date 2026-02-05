@@ -2,9 +2,11 @@ version: 2.1
 orbs:
   cicd: sedstart/cicd@dev:1
 jobs:
-  test-windows:
+  build: 
+    resource_class: 'windows.medium'
     machine:
-      image: windows-server-2022-gui
+      image: 'windows-server-2022-gui:current'
+      shell: 'powershell.exe -ExecutionPolicy Bypass'
     steps:
       - cicd/runlocal:    
           api_key: SEDSTART_API_KEY_PROD      
