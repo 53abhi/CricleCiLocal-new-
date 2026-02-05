@@ -1,21 +1,23 @@
 version: 2.1
+
 orbs:
   cicd: sedstart/cicd@dev:1
+
 jobs:
-  build: 
-    resource_class: 'windows.medium'
-    machine:
-      image: 'windows-server-2022-gui:current'
-      shell: 'powershell.exe -ExecutionPolicy Bypass'
+  test-windows:
+    executor:
+      name: windows
+      size: small
     steps:
-      - cicd/runlocal:    
-          api_key: SEDSTART_API_KEY_PROD      
+      - cicd/runlocal:
+          api_key: SEDSTART_API_KEY_PROD
           project_id: 418
           test_id: 1937
           profile_id: 848
           browser: chrome
           headless: true
           environment: QA
+
 workflows:
   test-workflow:
     jobs:
